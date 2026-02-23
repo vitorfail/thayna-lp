@@ -19,11 +19,28 @@
         }
 
         :root {
-            --verde-principal: #c53030;
-            --verde-escuro: #9b2c2c;
-            --verde-claro: #f1c7c7;
-            --cinza-texto: #2d3e4f;
-            --cinza-claro: #f5f7fa;
+            --bg-primary: #0a0c0f;
+            --bg-secondary: #14181c;
+            --bg-tertiary: #1e2429;
+            --bg-card: #1a1f24;
+            
+            /* Cores de texto */
+            --text-primary: #ffffff;
+            --text-secondary: #b3b9c4;
+            --text-tertiary: #8a919e;
+            --text-inverse: #0a0c0f;
+            
+            /* Cores douradas */
+            --gold-primary: #ffd700;
+            --gold-secondary: #daa520;
+            --gold-tertiary: #b8860b;
+            --gold-light: #fff1b8;
+            --gold-dark: #9b7e1e;
+            
+            /* Cores de borda e linha */
+            --border-light: rgba(255, 215, 0, 0.15);
+            --border-medium: rgba(255, 215, 0, 0.3);
+            --border-strong: rgba(255, 215, 0, 0.5);
             --branco: #ffffff;
             --sombra: 0 12px 30px rgba(0,0,0,0.05);
             --borda: 1px solid #e0e9ee;
@@ -37,11 +54,11 @@
             justify-content: center;
             padding: 10px;
             border-radius: 50%;
-            border: 2px solid white;
+            background: var(--bg-card);
         }
         i{
-            font-size: 1.2rem;
-            color: white;
+            font-size: 1.0rem;
+            color: #8B8B8B;
         }
         .menu-pequeno{
             display: none;
@@ -64,46 +81,70 @@
 
         /* ===== HEADER ===== */
         header {
+            position: relative;
+            z-index: 2;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            background: linear-gradient(to right, #FD0000, #C40000);
+            background: var(--bg-primary);
             width: 100%;
         }
 
         .items-header {
-            color: white;
+            color: #fff;
             padding: 10px 20px;
             width: 100%;
-            max-width: 1400px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 15px;
         }
-
+        .timeline-item .direitos{
+            color: var(--bg-primary);
+        }
+        .timeline-item strong{
+            color: var(--gold-primary);
+        }
+        .items-header .cont span{
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+        .logo-mobile{
+            display: none;
+        }
         .items-header .cont {
+            border-bottom: 1px solid var(--bg-secondary);
+            flex-direction: column;
             font-weight: 700;
             display: flex;
             gap: 20px;
-            flex-wrap: wrap;
+            width: 100%;
+            padding: 10px 0px;
+            justify-content: center;
         }
 
         .items-header a {
+            padding: 30px 10px;
             color: white;
             font-size: 15px;
-            font-weight: 700;
             text-decoration: none;
             position: relative;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            display: inline-block;
+            text-transform: capitalize;
+            outline: medium none;
+            background-color: transparent;
+            -webkit-text-decoration-skip: objects;
         }
 
         .items-header .linha {
             margin: 0 10px;
             width: 1px;
             height: 30px;
-            background: #DEB159;
+            background: var(--gold-primary);
         }
 
         .items-header:last-child {
@@ -113,7 +154,7 @@
         }
 
         .items-header img {
-            max-width: 150px;
+            max-width: 250px;
             height: auto;
         }
 
@@ -125,6 +166,42 @@
         }
 
         /* ===== BOTÃO WHATSAPP (CTA) ===== */
+        .whatsapp-fixed {
+            text-decoration: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        .whatsapp-fixed i{
+            font-size: 2.0rem;
+            color: white;
+        }
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
         .btn-whatsapp {
             display: inline-block;
             background-color: #25d366;
@@ -133,14 +210,17 @@
             padding: 16px 32px;
             border-radius: 50px;
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 1.5rem;
             transition: all 0.25s;
             box-shadow: 0 8px 18px rgba(37, 211, 102, 0.2);
             border: none;
             cursor: pointer;
             text-align: center;
         }
-
+        .btn-whatsapp i{
+            font-size: 1.5rem;
+            color: white;
+        }
         .btn-whatsapp:hover {
             background-color: #20b859;
             transform: scale(1.03);
@@ -152,12 +232,47 @@
         }
 
         /* ===== HEADER / HERO ===== */
+        .hero video{
+            z-index: -1;
+            position: absolute;
+            width: 100%;
+            right: -25%;
+            height: 100%;
+        }
+        .hero::before{
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, var(--bg-primary), var(--bg-tertiary), transparent);
+        }
+        #btn{
+            transition: all 0.3s ease;
+            background: linear-gradient(56deg, #25D366, #25D366, #afffe4, #25D366, #25D366);
+            /* background: linear-gradient(56deg, var(--secondary)); */
+            background-size: 400%;
+            animation: changeGradientAnimation 12s ease-in-out infinite;
+            box-shadow:  inset 0px 0px 60px rgba(0, 0, 0, 0.301);
+            border: 2px solid #009b39;
+        }
+        @keyframes changeGradientAnimation  {
+            0% {
+                background-position: 0%;
+            }
+
+            50% {
+                background-position: 400%;
+            }
+            100% {
+                background-position: 0%;
+            }
+        }
         .hero {
+            position: relative;
             display: flex;
             align-items: center;
             padding: 60px 0;
-            min-height: 600px;
-            background-image: url("hero.webp");
+            min-height: 750px;
             background-size: cover;
             background-position: center;
             border-bottom: var(--borda);
@@ -165,6 +280,7 @@
         }
 
         .hero-grid {
+            position: relative;
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
             gap: 48px;
@@ -175,18 +291,18 @@
             font-size: clamp(1.8rem, 5vw, 3.2rem);
             font-weight: 500;
             line-height: 1.2;
-            color: #000000;
+            color: white;
             margin-bottom: 24px;
         }
 
         .hero h1 strong {
-            color: rgb(233, 0, 0);
+            color: var(--gold-secondary);
         }
 
         .hero-text {
             font-size: clamp(1.2rem, 3vw, 1.8rem);
             margin-bottom: 32px;
-            color: #3e5a6b;
+            color: white;
         }
 
         /* ===== SEÇÃO DE PROBLEMAS/LISTA ===== */
@@ -208,8 +324,8 @@
             font-size: 0.9rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: var(--verde-principal);
-            background: var(--verde-claro);
+            color: var(--bg-primary);
+            background: var(--gold-primary);
             padding: 6px 14px;
             border-radius: 50px;
             margin-bottom: 20px;
@@ -218,7 +334,7 @@
         .problemas h2 {
             font-size: clamp(1.5rem, 4vw, 2.1rem);
             font-weight: 700;
-            color: #0e4b44;
+            color: var(--bg-primary);
             max-width: 700px;
             margin-bottom: 48px;
             line-height: 1.3;
@@ -239,10 +355,12 @@
             padding: 8px 0;
             border-bottom: 1px dashed #dce5ea;
         }
+        .icone-checklist i{
+            color: var(--bg-primary);
 
+        }
         .icone-checklist {
-            background: var(--verde-claro);
-            color: var(--verde-principal);
+            background: var(--gold-secondary);
             min-width: 36px;
             height: 36px;
             border-radius: 10px;
@@ -256,7 +374,7 @@
         /* ===== SOBRE ===== */
         .sobre {
             color: white;
-            background: rgb(56, 22, 22);
+            background: var(--bg-card);
             padding: 70px 0;
             border-top: var(--borda);
             border-bottom: var(--borda);
@@ -320,7 +438,7 @@
             top: -10px;
             height: 100%;
             position: absolute;
-            border: 1px solid rgb(177, 0, 0);
+            border: 1px solid var(--gold-primary);
         }
 
         .sobre .img::after,
@@ -333,7 +451,7 @@
             top: 10px;
             height: 100%;
             position: absolute;
-            background: rgb(126, 0, 0);
+            background: var(--gold-tertiary);
         }
 
         .sobre-adv h2 {
@@ -347,7 +465,9 @@
             color: #ffffff;
             margin-bottom: 24px;
         }
-
+        .sobre h2 strong{
+            color: var(--gold-primary);
+        }
         /* ===== DIFERENCIAIS ===== */
         .diferenciais {
             padding: 70px 0;
@@ -372,7 +492,7 @@
 
         /* ===== URGÊNCIA ===== */
         .urgencia {
-            background: linear-gradient(120deg, #ad4747, #833737);
+            background: linear-gradient(120deg, var(--bg-card), var(--bg-tertiary));
             color: white;
             padding: 60px 0;
             border-radius: 0;
@@ -507,7 +627,7 @@
         @media (max-width: 768px) {
             .menu-icon{
                 display: flex;
-                padding: 20px 0px;
+                padding: 5px 0px;
             }
             .menu-icon i{
                 padding: 10px;
@@ -546,20 +666,32 @@
                 text-align: center;
             }
             .hero .container{
+                height: 60vh;
                 z-index: 1;
             }
             .hero::before{
-                z-index: -1;
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(to top, rgb(255, 255, 255),rgb(255, 255, 255), rgba(255, 255, 255, 0));
-                z-index: 0;
+                background: linear-gradient(to top, var(--bg-primary), var(--bg-tertiary), transparent);
+            }
+            .sobre p, .sobre-adv{
+                
+            }
+            .items-header .cont span{
+                font-size: 0.8rem;
+            }
+            .hero video{
+                width: 200%;
+                right: 0;
+                top: -30%;
+            }
+            .logo-mobile{
+                display: flex;
+                width: 110px;
+                margin-bottom: 20px;
+                position: relative;
             }
             .hero{
+                padding: 0;
+                min-height: 80vh;
                 z-index: 1;
                 position: relative;
                 background-size: contain;
@@ -638,10 +770,43 @@
     <header>
         <div class="items-header">
             <div class="cont">
-                <span>51 3463-1310</span>
-                <span>51 98445-1310</span>
+                <span><i class="fa-solid fa-phone"></i> 51 98200-1504</span>
             </div>
-            <div class="icons">
+        </div>
+        <div class="menu-icon">
+            <i id="menu-btn" class="fa-solid fa-bars"></i>
+        </div>
+        <div id="menu" class="menu-pequeno">
+            <div class="menu">
+                <a href="#">Home</a>
+                <span class="linha"></span>
+                <a href="#">Escritório</a>
+                <span class="linha"></span>
+                <a href="#">Currículo</a>
+                <span class="linha"></span>
+                <a href="#">Atuação</a>
+                <span class="linha"></span>
+                <a href="#">Informativos</a>
+                <span class="linha"></span>
+                <a href="#">Contato</a>
+            </div>
+        </div>
+        <div class="items-header">
+            <img src="logo.png" alt="Logo" />
+            <div class="menu">
+                <a href="#">Home</a>
+                <span class="linha"></span>
+                <a href="#">Escritório</a>
+                <span class="linha"></span>
+                <a href="#">Currículo</a>
+                <span class="linha"></span>
+                <a href="#">Atuação</a>
+                <span class="linha"></span>
+                <a href="#">Informativos</a>
+                <span class="linha"></span>
+                <a href="#">Contato</a>
+            </div>
+                        <div class="icons">
                 <ul>
                     <i class="fa-brands fa-facebook-f"></i>
                 </ul>
@@ -652,55 +817,25 @@
                     <i class="fa-brands fa-youtube"></i>
                 </ul>
             </div>
-        </div>
-        <div class="menu-icon">
-            <i id="menu-btn" class="fa-solid fa-bars"></i>
-        </div>
-        <div id="menu" class="menu-pequeno">
-            <div class="menu">
-                <a href="#">HOME</a>
-                <span class="linha"></span>
-                <a href="#">ESCRITÓRIO</a>
-                <span class="linha"></span>
-                <a href="#">CURRÍCULO</a>
-                <span class="linha"></span>
-                <a href="#">ATUAÇÃO</a>
-                <span class="linha"></span>
-                <a href="#">INFORMATIVOS</a>
-                <span class="linha"></span>
-                <a href="#">CONTATO</a>
-            </div>
-        </div>
-        <div class="items-header">
-            <img src="logo.png" alt="Logo" />
-            <div>
-                <a href="#">HOME</a>
-                <span class="linha"></span>
-                <a href="#">ESCRITÓRIO</a>
-                <span class="linha"></span>
-                <a href="#">CURRÍCULO</a>
-                <span class="linha"></span>
-                <a href="#">ATUAÇÃO</a>
-                <span class="linha"></span>
-                <a href="#">INFORMATIVOS</a>
-                <span class="linha"></span>
-                <a href="#">CONTATO</a>
-            </div>
         </div>    
     </header>
 
     <!-- ===== HERO ===== -->
     <section class="hero">
+        <video width="640" height="360" autoplay muted loop>
+            <source src="carteira-video.mp4" type="video/mp4">
+        </video>
         <div class="container hero-grid">
             <div>
+                <img alt="Logo" class="logo-mobile" src="logo-mobile.png">
                 <h1>
                     Precisa de um <strong>Advogado Trabalhista</strong> no Estado?
                 </h1>
                 <p class="hero-text">
                     Defenda seus direitos como trabalhador com o apoio de um advogado especializado em causas trabalhistas.
                 </p>
-                <a href="#" class="btn-whatsapp">
-                    📲 Fale com a equipe no WhatsApp
+                <a href="#" class="btn-whatsapp" id="btn">
+                    <i class="fa-brands fa-whatsapp"></i> Fale com advogado
                 </a>
             </div>
         </div>
@@ -714,7 +849,7 @@
             <div class="grid-2col">
                 <!-- itens existentes... -->
                 <div class="item-problema">
-                    <div class="icone-checklist">💰</div>
+                    <div class="icone-checklist"><i class="fa-solid fa-sack-dollar"></i></div>
                     <div>
                         <strong>Demissão e não recebi minhas contas</strong>
                         <p>Cálculo de verbas rescisórias, multa de 40% do FGTS, prazos e valores corretos.</p>
@@ -722,7 +857,7 @@
                 </div>
                             <!-- item 2 -->
             <div class="item-problema">
-                <div class="icone-checklist">⏳</div>
+                <div class="icone-checklist"><i class="fa-solid fa-hourglass-start"></i></div>
                 <div>
                     <strong>Trabalho aos domingos sem folga</strong>
                     <p>Repouso semanal remunerado em dobro e inobservância da escala.</p>
@@ -730,7 +865,7 @@
             </div>
             <!-- item 3 -->
             <div class="item-problema">
-                <div class="icone-checklist">😤</div>
+                <div class="icone-checklist"><i class="fa-solid fa-people-pulling"></i></div>
                 <div>
                     <strong>Assédio moral ou sexual</strong>
                     <p>Condutas humilhantes, danos à dignidade e indenização por danos morais.</p>
@@ -738,7 +873,7 @@
             </div>
             <!-- item 4 -->
             <div class="item-problema">
-                <div class="icone-checklist">🍽️</div>
+                <div class="icone-checklist"><i class="fa-solid fa-pizza-slice"></i></div>
                 <div>
                     <strong>Intervalo intrajornada não concedido</strong>
                     <p>Famoso "almoço de 15 minutos" – pagamento do período suprimido com adicional.</p>
@@ -746,7 +881,7 @@
             </div>
             <!-- item 5 -->
             <div class="item-problema">
-                <div class="icone-checklist">🩺</div>
+                <div class="icone-checklist"><i class="fa-solid fa-stethoscope"></i></div>
                 <div>
                     <strong>Acidente de trabalho / doença ocupacional</strong>
                     <p>Estabilidade, indenizações, danos materiais e morais.</p>
@@ -754,7 +889,7 @@
             </div>
             <!-- item 6 -->
             <div class="item-problema">
-                <div class="icone-checklist">📌</div>
+                <div class="icone-checklist"><i class="fa-solid fa-thumbtack"></i></div>
                 <div>
                     <strong>Desvio de função</strong>
                     <p>Fazia trabalho de cargo superior sem receber o salário correspondente.</p>
@@ -762,7 +897,7 @@
             </div>
             <!-- item 7 -->
             <div class="item-problema">
-                <div class="icone-checklist">⏰</div>
+                <div class="icone-checklist"><i class="fa-solid fa-clock-rotate-left"></i></div>
                 <div>
                     <strong>Banco de horas ilegal</strong>
                     <p>Compensação abusiva ou sem acordo válido.</p>
@@ -770,7 +905,7 @@
             </div>
             <!-- item 8 -->
             <div class="item-problema">
-                <div class="icone-checklist">🧾</div>
+                <div class="icone-checklist"><i class="fa-regular fa-file-lines"></i></div>
                 <div>
                     <strong>Contribuição sindical obrigatória</strong>
                     <p>Cobranças indevidas após a reforma trabalhista.</p>
@@ -790,15 +925,14 @@
             <span class="section-tag">👨‍⚖️ QUEM VAI CUIDAR DO SEU CASO</span>
             <div class="content">
                 <div class="lado-esquerdo">
-                    <h2>Há Mais de 15 anos ajudando os trabalhadores</h2>
+                    <h2>Há Mais de <strong> 15 anos</strong> ajudando os trabalhadores</h2>
                     <div class="timeline-item">
-                        <span>O escritório Paulo Franco Advocacia tem mais de 30 anos de experiência na defesa de trabalhadores e é referência no Ceará quando o assunto é Direito do Trabalho.
+                        <p>O Thayná Braga Advocacia atua de forma especializada na defesa dos <strong>direitos trabalhistas</strong>, com estratégia jurídica sólida e atuação técnica aprofundada.<br><br>
+Com mais de <strong>5.000</strong> clientes atendidos, o escritório conduz ações envolvendo verbas rescisórias, horas extras, insalubridade, reconhecimento de vínculo, estabilidade gestacional, rescisão indireta e indenizações por acidente de trabalho.<br><br>
 
-    Atuamos tanto de forma consultiva quanto judicial, com foco em garantir que cada cliente receba o que é seu por direito. Já representamos trabalhadores de diversas áreas e empresas, em causas individuais e coletivas de alta complexidade.
+Cada caso é analisado de forma individualizada, com estudo detalhado das provas e definição da melhor estratégia para buscar a reparação integral dos direitos violados.<br><br>
 
-    Nossa atuação é técnica, estratégica e personalizada, sempre com ética, responsabilidade e respeito a quem mais precisa: o trabalhador.
-
-    Seja você uma pessoa física ou representante de uma entidade de classe, estamos prontos para analisar seu caso com atenção e encontrar o melhor caminho jurídico para defender seus direitos.</span>
+Se seus direitos não foram respeitados, é possível buscar a solução adequada com orientação jurídica especializada e comprometida com resultado.</p>
                     </div>
                 </div>
                 <div class="img">
@@ -819,7 +953,15 @@
                 <div class="lado-esquerdo">
                     <h2>Thayná Braga - OAB/RS 79019</h2>
                     <div class="timeline-item">
-                        <span>Thayná de Lima Braga é advogada desde os 21 anos de idade, formada pelo Centro Universitário Ritter dos Reis (Uniritter) em 2009/02. Foi aprovada no exame da OAB antes mesmo de concluir o curso de Direito. Apresentou seu trabalho de conclusão sob título “A Lei de Crimes Ambientais e os Princípios do Direito Penal” obtendo nota máxima 10. Em 2010, após sua formação montou o Escritório de Advocacia Thayná Braga onde passou a atuar em diversas áreas, mas sempre dando ênfase na área Trabalhista e Previdenciária. Atuou como advogada de diversos Sindicatos da cidade de Canoas, como os SINDIDOMÉSTICA E SINDEPRES. Concluiu sua Pós-Graduação em Direito do Trabalho e Processo do Trabalho no ano de 2016 junto ao Centro Universitário Ritter dos Reis, Uniritter, recebendo o título de Especialista em Direito do Trabalho. Escreveu o artigo “A POSSIBILIDADE DE CUMULAÇÃO DOS ADICIONAIS DE INSALUBRIDADE E PERICULOSIDADE”, novamente obtendo nota máxima no seu trabalho. Realizou e ainda realiza anualmente diversos cursos de extensão na área trabalhista e previdenciária. Desde então, Thayná trabalha exclusivamente na área trabalhista e previdenciária, buscando sempre a melhor solução para cada caso dos seus clientes, tratando cada um como único, entende que a advocacia artesanal está em escassez no Brasil hoje, mas que ainda tem espaço para ser praticada, pois o seu foco é aquele cliente que busca um trabalho de qualidade e exclusivo, com a devida atenção pelo seu advogado.</span>
+                        <p>Advogada inscrita na OAB/RS desde 2010, com mais de 15 anos de atuação nas áreas de <strong class="direitos">Direito Previdenciário e Direito do Trabalho.</strong><br><br>
+
+Pós-graduada em Direito Previdenciário, pós-graduada em Direito do Trabalho e Processo do Trabalho, com MBA em Acidente de Trabalho. Possui ainda diversos cursos de especialização e atualização contínua nas áreas previdenciária e trabalhista, mantendo atuação alinhada à legislação vigente e à jurisprudência atualizada.<br><br>
+
+Ao longo de sua trajetória profissional, já atendeu mais de <strong class="direitos">cinco mil clientes</strong>, conduzindo demandas judiciais e administrativas envolvendo aposentadorias, benefícios por incapacidade, pensão por morte, BPC/LOAS, reconhecimento de vínculo, verbas trabalhistas e acidentes de trabalho.<br><br>
+
+Atualmente é <strong class="direitos">Conselheira da OAB – Subseção de Canoas</strong>, Presidente da Comissão da Justiça Federal e Vice-Presidente da Comissão de Direito Previdenciário, ambas na OAB Subseção Canoas, exercendo atuação institucional relevante e contribuindo para o fortalecimento técnico da advocacia na região.<br><br>
+
+Sua atuação é pautada por estratégia processual, análise técnica aprofundada e defesa firme dos direitos sociais.</p>
                     </div>
                 </div>
             </div>
@@ -834,7 +976,7 @@
             <div class="cards-3">
                 <div class="card-diferencial">
                     <div class="icone">📱</div>
-                    <h3>Atendimento 100% online</h3>
+                    <h3>Atendimento online e Presencial</h3>
                     <p>Sem burocracia. Você recebe orientação por videochamada, áudio ou chat.</p>
                 </div>
                 <div class="card-diferencial">
@@ -894,13 +1036,9 @@
             </div>
         </div>
     </section>
-
-    <!-- ===== WHATSAPP FIXO ===== -->
-    <div class="whatsapp-fixo">
-        <a href="#">
-            <span>📲</span>
-        </a>
-    </div>
+    <a href="https://wa.me/5551982001504?text=Vim%20pelo%20site%20e%20gostaria%20de%20dar%20entrada%20nos%20meus%20direitos%20trabalhistas" class="whatsapp-fixed">
+        <i class="fab fa-whatsapp"></i>
+    </a>
     <script>
         document.getElementById('menu-btn').addEventListener('click', function() {
     document.getElementById('menu').classList.toggle('show');
