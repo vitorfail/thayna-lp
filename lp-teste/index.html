@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advocacia Trabalhista | [Seu Nome]</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <style>
+        /* ===== RESET & VARIÁVEIS ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Cores de fundo - Tons de azul escuro */
+            --bg-primary: #0a1428;      /* Azul marinho escuro */
+            --bg-secondary: #1a2942;    /* Azul escuro médio */
+            --bg-tertiary: #2a3b5a;     /* Azul escuro claro */
+            --bg-card: #1e3150;         /* Azul para cards */
+            
+            /* Cores de texto */
+            --text-primary: #ffffff;     /* Branco puro */
+            --text-secondary: #b8c7e7;   /* Azul muito claro acinzentado */
+            --text-tertiary: #8a9fc7;    /* Azul médio acinzentado */
+            --text-inverse: #0a1428;     /* Azul escuro principal */
+            
+            /* Cores azuis (mantendo os nomes gold) */
+            --gold-primary: #3b82f6;     /* Azul vibrante */
+            --gold-secondary: #2563eb;   /* Azul médio */
+            --gold-tertiary: #1d4ed8;    /* Azul escuro */
+            --gold-light: #93c5fd;       /* Azul claro */
+            --gold-dark: #1e3a8a;        /* Azul profundo */            
+            /* Cores de borda e linha */
+            --border-light: rgba(255, 215, 0, 0.15);
+            --border-medium: rgba(255, 215, 0, 0.3);
+            --border-strong: rgba(255, 215, 0, 0.5);
+            --branco: #ffffff;
+            --sombra: 0 12px 30px rgba(0,0,0,0.05);
+            --borda: 1px solid #e0e9ee;
+            --radius: 16px;
+        }
+        ul{
+            height: 40px;
+            width: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border-radius: 50%;
+            background: var(--bg-card);
+        }
+        i{
+            font-size: 1.0rem;
+            color: #8B8B8B;
+        }
+        .menu-pequeno{
+            display: none;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--cinza-texto);
+            line-height: 1.5;
+            background-color: var(--branco);
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background: var(--bg-primary);
+            width: 100%;
+        }
+
+        .items-header {
+            color: #fff;
+            padding: 10px 20px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .timeline-item .direitos{
+            color: var(--bg-primary);
+        }
+        .timeline-item strong{
+            color: var(--gold-primary);
+        }
+        .items-header .cont span{
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+        .logo-mobile{
+            display: none;
+        }
+        .items-header .cont {
+            border-bottom: 1px solid var(--bg-secondary);
+            flex-direction: column;
+            font-weight: 700;
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            padding: 10px 0px;
+            justify-content: center;
+        }
+
+        .items-header a {
+            padding: 30px 10px;
+            color: white;
+            font-size: 15px;
+            text-decoration: none;
+            position: relative;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            display: inline-block;
+            text-transform: capitalize;
+            outline: medium none;
+            background-color: transparent;
+            -webkit-text-decoration-skip: objects;
+        }
+
+        .items-header .linha {
+            margin: 0 10px;
+            width: 1px;
+            height: 30px;
+            background: var(--gold-primary);
+        }
+
+        .items-header:last-child {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .items-header img {
+            max-width: 250px;
+            height: auto;
+        }
+
+        .items-header > div:last-child {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        /* ===== BOTÃO WHATSAPP (CTA) ===== */
+        .whatsapp-fixed {
+            text-decoration: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        .whatsapp-fixed i{
+            font-size: 2.0rem;
+            color: white;
+        }
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        .btn-whatsapp {
+            display: inline-block;
+            background-color: #25d366;
+            color: white;
+            font-weight: 600;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.25s;
+            box-shadow: 0 8px 18px rgba(37, 211, 102, 0.2);
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+        .btn-whatsapp i{
+            font-size: 1.5rem;
+            color: white;
+        }
+        .btn-whatsapp:hover {
+            background-color: #20b859;
+            transform: scale(1.03);
+            box-shadow: 0 12px 22px rgba(37, 211, 102, 0.25);
+        }
+
+        .btn-whatsapp i {
+            margin-right: 8px;
+        }
+
+        /* ===== HEADER / HERO ===== */
+        .hero video{
+            z-index: -1;
+            position: absolute;
+            width: 100%;
+            right: -25%;
+            height: 100%;
+        }
+        .hero::before{
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, var(--bg-primary), var(--bg-tertiary), transparent);
+        }
+        #btn{
+            transition: all 0.3s ease;
+            background: linear-gradient(56deg, #25D366, #25D366, #afffe4, #25D366, #25D366);
+            /* background: linear-gradient(56deg, var(--secondary)); */
+            background-size: 400%;
+            animation: changeGradientAnimation 12s ease-in-out infinite;
+            box-shadow:  inset 0px 0px 60px rgba(0, 0, 0, 0.301);
+            border: 2px solid #009b39;
+        }
+        @keyframes changeGradientAnimation  {
+            0% {
+                background-position: 0%;
+            }
+
+            50% {
+                background-position: 400%;
+            }
+            100% {
+                background-position: 0%;
+            }
+        }
+        .hero {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 60px 0;
+            min-height: 750px;
+            background-size: cover;
+            background-position: center;
+            border-bottom: var(--borda);
+            width: 100%;
+        }
+
+        .hero-grid {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(1.8rem, 5vw, 3.2rem);
+            font-weight: 500;
+            line-height: 1.2;
+            color: white;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 strong {
+            color: var(--gold-secondary);
+        }
+
+        .hero-text {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-bottom: 32px;
+            color: white;
+        }
+
+        /* ===== SEÇÃO DE PROBLEMAS/LISTA ===== */
+        .problemas {
+            padding: 70px 0;
+            background: var(--branco);
+            width: 100%;
+        }
+
+        .problemas .container {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: white;
+            background: var(--gold-primary);
+            padding: 6px 14px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+        }
+
+        .problemas h2 {
+            font-size: clamp(1.5rem, 4vw, 2.1rem);
+            font-weight: 700;
+            color: var(--bg-primary);
+            max-width: 700px;
+            margin-bottom: 48px;
+            line-height: 1.3;
+            text-align: center;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px 48px;
+            width: 100%;
+        }
+
+        .item-problema {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 8px 0;
+            border-bottom: 1px dashed #dce5ea;
+        }
+        .icone-checklist i{
+            color: var(--bg-primary);
+
+        }
+        .icone-checklist {
+            background: var(--gold-secondary);
+            min-width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        /* ===== SOBRE ===== */
+        .sobre {
+            color: white;
+            background: var(--bg-card);
+            padding: 70px 0;
+            border-top: var(--borda);
+            border-bottom: var(--borda);
+            width: 100%;
+        }
+
+        .sobre-adv {
+            color: black;
+            background: white;
+            padding: 70px 0;
+            border-top: var(--borda);
+            border-bottom: var(--borda);
+            width: 100%;
+        }
+
+        .sobre .container .content,
+        .sobre-adv .container .content {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            width: 100%;
+        }
+
+        .sobre .lado-esquerdo {
+            width: 40%;
+        }
+
+        .sobre-adv .lado-esquerdo {
+            width: 55%;
+        }
+
+        .sobre .img {
+            display: flex;
+            position: relative;
+            width: 60%;
+            margin: 32px;
+            z-index: 1;
+        }
+
+        .sobre-adv .img {
+            width: 40%;
+            position: relative;
+        }
+
+        .sobre img,
+        .sobre-adv img {
+            display: flex;
+            position: relative;
+            width: 100%;
+            height: auto;
+        }
+
+        .sobre .img::before,
+        .sobre-adv .img::before {
+            z-index: 1;
+            content: "";
+            display: flex;
+            width: 100%;
+            left: -10px;
+            top: -10px;
+            height: 100%;
+            position: absolute;
+            border: 1px solid var(--gold-primary);
+        }
+
+        .sobre .img::after,
+        .sobre-adv .img::after {
+            z-index: -1;
+            content: "";
+            display: flex;
+            width: 100%;
+            left: 15px;
+            top: 10px;
+            height: 100%;
+            position: absolute;
+            background: var(--gold-tertiary);
+        }
+
+        .sobre-adv h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: #000000;
+            margin-bottom: 24px;
+        }
+
+        .sobre h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: #ffffff;
+            margin-bottom: 24px;
+        }
+        .sobre h2 strong{
+            color: var(--gold-primary);
+        }
+        /* ===== DIFERENCIAIS ===== */
+        .diferenciais {
+            padding: 70px 0;
+            width: 100%;
+        }
+
+        .cards-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card-diferencial {
+            background: var(--branco);
+            padding: 32px 24px;
+            border-radius: var(--radius);
+            border: var(--borda);
+            transition: all 0.2s;
+            box-shadow: var(--sombra);
+        }
+
+        /* ===== URGÊNCIA ===== */
+        .urgencia {
+            background: linear-gradient(120deg, var(--bg-card), var(--bg-tertiary));
+            color: white;
+            padding: 60px 0;
+            border-radius: 0;
+            width: 100%;
+        }
+
+        .urgencia .container {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .urgencia .anos{
+            color: var(--bg-secondary);
+            padding: 40px;
+            background: var(--gold-secondary);
+            display: flex;
+            flex-direction: column;
+            border-radius: 20px;
+            align-items: center;
+        }
+        .menu-icon{
+            display: none;
+            width: 100%;
+            justify-content: flex-end;
+        }
+        .urgencia h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        /* ===== CONTATO ===== */
+        .contato {
+            padding: 60px 0 40px;
+            background: #1e2c34;
+            color: white;
+            width: 100%;
+        }
+
+        .contato-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .whatsapp-numero {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-copy {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 0.85rem;
+            color: #b0c4ce;
+        }
+
+        /* ===== WHATSAPP FIXO ===== */
+        .whatsapp-fixo {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+        }
+
+        .whatsapp-fixo a {
+            background: #25d366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            transition: 0.2s;
+        }
+
+        .whatsapp-fixo a:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-fixo span {
+            font-size: 2.4rem;
+            color: white;
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 1024px) {
+            .sobre .container .content,
+            .sobre-adv .container .content {
+                flex-direction: column;
+            }
+            
+            .sobre .lado-esquerdo,
+            .sobre-adv .lado-esquerdo,
+            .sobre .img,
+            .sobre-adv .img {
+                width: 100%;
+            }
+            
+            .sobre .img {
+                margin: 20px 0;
+            }
+            
+            .sobre .img::before,
+            .sobre-adv .img::before {
+                left: -5px;
+                top: -5px;
+            }
+            
+            .sobre .img::after,
+            .sobre-adv .img::after {
+                left: 10px;
+                top: 5px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-grid { 
+                grid-template-columns: 1fr; 
+            }
+            
+            .cards-3 { 
+                grid-template-columns: repeat(2, 1fr); 
+            }
+            
+            .contato-grid { 
+                grid-template-columns: repeat(2, 1fr); 
+            }
+            
+            .items-header:last-child > div:last-child {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-icon{
+                display: flex;
+                padding: 5px 0px;
+            }
+            .menu-icon i{
+                padding: 10px;
+                font-size: 1.5rem;
+            }
+            .items-header:last-child{
+                display: none;
+            }
+            .menu-pequeno .menu a{
+                color: white;
+            }
+            .menu-pequeno .menu{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .menu-pequeno.show{
+                display: flex;
+            }
+            .menu-pequeno{
+                color: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .hero .container div{
+                flex-direction: column;
+                display: flex;
+                align-items: center;
+            }
+            .hero h1{
+                font-size: clamp(1.8rem, 9vw, 3.2rem);
+                text-align: center;
+            }
+            .hero-text{
+                text-align: center;
+            }
+            .hero .container{
+                height: 60vh;
+                z-index: 1;
+            }
+            .hero::before{
+                background: linear-gradient(to top, var(--bg-primary), var(--bg-tertiary), transparent);
+            }
+            .sobre p, .sobre-adv{
+                
+            }
+            .items-header .cont span{
+                font-size: 0.8rem;
+            }
+            .hero video{
+                width: 200%;
+                right: 0;
+                top: -30%;
+            }
+            .logo-mobile{
+                display: flex;
+                width: 110px;
+                margin-bottom: 20px;
+                position: relative;
+            }
+            .hero{
+                padding: 0;
+                min-height: 80vh;
+                z-index: 1;
+                position: relative;
+                background-size: contain;
+                align-items: flex-end;
+                background-position: 0px 0px;
+            }
+            .grid-2col { 
+                grid-template-columns: 1fr; 
+            }
+            
+            .cards-3 { 
+                grid-template-columns: 1fr; 
+            }
+            
+            .urgencia .container { 
+                grid-template-columns: 1fr; 
+            }
+            
+            .contato-grid { 
+                grid-template-columns: 1fr; 
+            }
+            
+            .btn-whatsapp { 
+                width: 100%; 
+            }
+            
+            .items-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .items-header .cont {
+                justify-content: center;
+            }
+            
+            .items-header:last-child {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .items-header:last-child > div:last-child {
+                justify-content: center;
+            }
+            
+            .items-header .linha {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container { 
+                padding: 0 15px; 
+            }
+            
+            .section-tag { 
+                font-size: 0.8rem; 
+            }
+            
+            .whatsapp-fixo {
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .whatsapp-fixo a {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .whatsapp-fixo span {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="items-header">
+            <div class="cont">
+                <span><i class="fa-solid fa-phone"></i> 51 98200-1504</span>
+            </div>
+        </div>
+        <div class="menu-icon">
+            <i id="menu-btn" class="fa-solid fa-bars"></i>
+        </div>
+        <div id="menu" class="menu-pequeno">
+            <div class="menu">
+                <a href="#">Home</a>
+                <span class="linha"></span>
+                <a href="#">Escritório</a>
+                <span class="linha"></span>
+                <a href="#">Currículo</a>
+                <span class="linha"></span>
+                <a href="#">Atuação</a>
+                <span class="linha"></span>
+                <a href="#">Informativos</a>
+                <span class="linha"></span>
+                <a href="#">Contato</a>
+            </div>
+        </div>
+        <div class="items-header">
+            <img src="logo.png" alt="Logo" />
+            <div class="menu">
+                <a href="#">Home</a>
+                <span class="linha"></span>
+                <a href="#">Escritório</a>
+                <span class="linha"></span>
+                <a href="#">Currículo</a>
+                <span class="linha"></span>
+                <a href="#">Atuação</a>
+                <span class="linha"></span>
+                <a href="#">Informativos</a>
+                <span class="linha"></span>
+                <a href="#">Contato</a>
+            </div>
+                        <div class="icons">
+                <ul>
+                    <i class="fa-brands fa-facebook-f"></i>
+                </ul>
+                <ul>
+                    <i class="fa-brands fa-instagram"></i>
+                </ul>
+                <ul>
+                    <i class="fa-brands fa-youtube"></i>
+                </ul>
+            </div>
+        </div>    
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <video width="640" height="360" autoplay muted loop>
+            <source src="carteira-video.mp4" type="video/mp4">
+        </video>
+        <div class="container hero-grid">
+            <div>
+                <img alt="Logo" class="logo-mobile" src="logo-mobile.png">
+                <h1>
+                    Precisa de um <strong>Advogado Trabalhista</strong> no Estado?
+                </h1>
+                <p class="hero-text">
+                    Defenda seus direitos como trabalhador com o apoio de um advogado especializado em causas trabalhistas.
+                </p>
+                <a href="#" class="btn-whatsapp" id="btn">
+                    <i class="fa-brands fa-whatsapp"></i> Fale com advogado
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LISTA DE SITUAÇÕES ===== -->
+    <section class="problemas">
+        <div class="container">
+            <span class="section-tag">🔍 COMO PODEMOS AJUDAR</span>
+            <h2>Um advogado trabalhista pode fazer a diferença na sua vida</h2>
+            <div class="grid-2col">
+                <!-- itens existentes... -->
+                <div class="item-problema">
+                    <div class="icone-checklist"><i class="fa-solid fa-sack-dollar"></i></div>
+                    <div>
+                        <strong>Demissão e não recebi minhas contas</strong>
+                        <p>Cálculo de verbas rescisórias, multa de 40% do FGTS, prazos e valores corretos.</p>
+                    </div>
+                </div>
+                            <!-- item 2 -->
+            <div class="item-problema">
+                <div class="icone-checklist"><i class="fa-solid fa-hourglass-start"></i></div>
+                <div>
+                    <strong>Trabalho aos domingos sem folga</strong>
+                    <p>Repouso semanal remunerado em dobro e inobservância da escala.</p>
+                </div>
+            </div>
+            <!-- item 3 -->
+            <div class="item-problema">
+                <div class="icone-checklist"><i class="fa-solid fa-people-pulling"></i></div>
+                <div>
+                    <strong>Assédio moral ou sexual</strong>
+                    <p>Condutas humilhantes, danos à dignidade e indenização por danos morais.</p>
+                </div>
+            </div>
+            <!-- item 4 -->
+            <div class="item-problema">
+                <div class="icone-checklist"><i class="fa-solid fa-pizza-slice"></i></div>
+                <div>
+                    <strong>Intervalo intrajornada não concedido</strong>
+                    <p>Famoso "almoço de 15 minutos" – pagamento do período suprimido com adicional.</p>
+                </div>
+            </div>
+            <!-- item 5 -->
+            <div class="item-problema">
+                <div class="icone-checklist"><i class="fa-solid fa-stethoscope"></i></div>
+                <div>
+                    <strong>Acidente de trabalho / doença ocupacional</strong>
+                    <p>Estabilidade, indenizações, danos materiais e morais.</p>
+                </div>
+            </div>
+            <!-- item 6 -->
+            <div class="item-problema">
+                <div class="icone-checklist"><i class="fa-solid fa-thumbtack"></i></div>
+                <div>
+                    <strong>Desvio de função</strong>
+                    <p>Fazia trabalho de cargo superior sem receber o salário correspondente.</p>
+                </div>
+            </div>
+            <!-- item 7 -->
+            <div class="item-problema">
+                <div class="icone-checklist"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                <div>
+                    <strong>Banco de horas ilegal</strong>
+                    <p>Compensação abusiva ou sem acordo válido.</p>
+                </div>
+            </div>
+            <!-- item 8 -->
+            <div class="item-problema">
+                <div class="icone-checklist"><i class="fa-regular fa-file-lines"></i></div>
+                <div>
+                    <strong>Contribuição sindical obrigatória</strong>
+                    <p>Cobranças indevidas após a reforma trabalhista.</p>
+                </div>
+            </div>
+            
+            </div>
+                    <p style="margin-top: 48px; font-size: 1.1rem; background: #e8f3ef; padding: 16px 24px; border-radius: 50px;">
+            👥 Atendemos também <strong>síndicos, MEIs, profissionais liberais e pequenas empresas</strong> em consultoria trabalhista preventiva.
+        </p>
+        </div>
+    </section>
+
+    <!-- ===== SOBRE ===== -->
+    <section class="sobre">
+        <div class="container">
+            <span class="section-tag">👨‍⚖️ QUEM VAI CUIDAR DO SEU CASO</span>
+            <div class="content">
+                <div class="lado-esquerdo">
+                    <h2>Há Mais de <strong> 15 anos</strong> ajudando os trabalhadores</h2>
+                    <div class="timeline-item">
+                        <p>O Thayná Braga Advocacia atua de forma especializada na defesa dos <strong>direitos trabalhistas</strong>, com estratégia jurídica sólida e atuação técnica aprofundada.<br><br>
+Com mais de <strong>5.000</strong> clientes atendidos, o escritório conduz ações envolvendo verbas rescisórias, horas extras, insalubridade, reconhecimento de vínculo, estabilidade gestacional, rescisão indireta e indenizações por acidente de trabalho.<br><br>
+
+Cada caso é analisado de forma individualizada, com estudo detalhado das provas e definição da melhor estratégia para buscar a reparação integral dos direitos violados.<br><br>
+
+Se seus direitos não foram respeitados, é possível buscar a solução adequada com orientação jurídica especializada e comprometida com resultado.</p>
+                    </div>
+                </div>
+                <div class="img">
+                    <img src="equipe.webp" alt="Equipe">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SOBRE ADVOGADA ===== -->
+    <section class="sobre-adv">
+        <div class="container">
+            <span class="section-tag">MAIS SOBRE A THAYNÁ BRAGA</span>
+            <div class="content">
+                <div class="img">
+                    <img src="thayna.JPEG" alt="Equipe">
+                </div>
+                <div class="lado-esquerdo">
+                    <h2>Thayná Braga - OAB/RS 79019</h2>
+                    <div class="timeline-item">
+                        <p>Advogada inscrita na OAB/RS desde 2010, com mais de 15 anos de atuação nas áreas de <strong class="direitos">Direito Previdenciário e Direito do Trabalho.</strong><br><br>
+
+Pós-graduada em Direito Previdenciário, pós-graduada em Direito do Trabalho e Processo do Trabalho, com MBA em Acidente de Trabalho. Possui ainda diversos cursos de especialização e atualização contínua nas áreas previdenciária e trabalhista, mantendo atuação alinhada à legislação vigente e à jurisprudência atualizada.<br><br>
+
+Ao longo de sua trajetória profissional, já atendeu mais de <strong class="direitos">cinco mil clientes</strong>, conduzindo demandas judiciais e administrativas envolvendo aposentadorias, benefícios por incapacidade, pensão por morte, BPC/LOAS, reconhecimento de vínculo, verbas trabalhistas e acidentes de trabalho.<br><br>
+
+Atualmente é <strong class="direitos">Conselheira da OAB – Subseção de Canoas</strong>, Presidente da Comissão da Justiça Federal e Vice-Presidente da Comissão de Direito Previdenciário, ambas na OAB Subseção Canoas, exercendo atuação institucional relevante e contribuindo para o fortalecimento técnico da advocacia na região.<br><br>
+
+Sua atuação é pautada por estratégia processual, análise técnica aprofundada e defesa firme dos direitos sociais.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DIFERENCIAIS ===== -->
+    <section class="diferenciais">
+        <div class="container">
+            <span class="section-tag">⚡ POR QUE NOS ESCOLHER</span>
+            <h2>Compromisso, clareza e presença digital</h2>
+            <div class="cards-3">
+                <div class="card-diferencial">
+                    <div class="icone">📱</div>
+                    <h3>Atendimento online e Presencial</h3>
+                    <p>Sem burocracia. Você recebe orientação por videochamada, áudio ou chat.</p>
+                </div>
+                <div class="card-diferencial">
+                    <div class="icone">📋</div>
+                    <h3>Linguagem simples</h3>
+                    <p>Esqueça o juridiquês. Explicamos cada etapa do processo.</p>
+                </div>
+                <div class="card-diferencial">
+                    <div class="icone">🤝</div>
+                    <h3>Honorários transparentes</h3>
+                    <p>Contrato claro, sem letras miúdas. Você sabe exatamente quanto e quando paga.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== URGÊNCIA ===== -->
+    <section class="urgencia">
+        <div class="container">
+            <div>
+            <h2>⏳ O relógio corre contra você</h2>
+            <p style="font-size: 1.3rem;">A maioria dos direitos trabalhistas prescrevem em 2 anos após a demissão.</p>
+            <p>Deixar para depois pode significar perder verbas que são suas por lei. Muitas ações têm prazo de 5 anos, mas apenas sobre valores dos últimos 5 anos. Não perca mais tempo.</p>
+            <a href="#" class="btn-whatsapp" style="margin-top: 16px; display: inline-block; width: auto;">
+                🔎 Quero saber se ainda dá tempo
+            </a>
+            </div>
+            <div class="anos">
+                <span style="font-size: 4rem; font-weight: 800;">2 anos</span>
+                <p>é o prazo para entrar com a ação após o fim do contrato</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTATO ===== -->
+    <section class="contato">
+        <div class="container">
+            <div style="margin-bottom: 40px;">
+                <span style="background: rgba(255,255,255,0.1); color: white; padding: 6px 16px; border-radius: 50px;">📞 FALE AGORA</span>
+            </div>
+            <div class="contato-grid">
+                <div class="contato-item">
+                    <span style="font-size: 2rem;">📱</span>
+                    <a href="#" class="whatsapp-numero">(51) 98200-1504</a>
+                </div>
+                <div class="contato-item">
+                    <span style="font-size: 2rem;">📧</span>
+                    <span style="font-size: 1.2rem;">contato@dominio.com.br</span>
+                </div>
+                <div class="contato-item">
+                    <span style="font-size: 2rem;">📍</span>
+                    <span style="font-size: 1.2rem;">Matriz: Av. Inconfidência, 650 - sala 714 - Edifício La Torre (em frente ao INSS) - Mal. Rondon - Canoas - RS
+Filial: Rua Nelson Paim Terra, 1327 - Rio Branco - Canoas - RS</span>
+                </div>
+            </div>
+            <div class="footer-copy">
+                <p>Thayná Braga © 2026 – Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </section>
+    <a href="https://wa.me/5551982001504?text=Vim%20pelo%20site%20e%20gostaria%20de%20dar%20entrada%20nos%20meus%20direitos%20trabalhistas" class="whatsapp-fixed">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <script>
+        document.getElementById('menu-btn').addEventListener('click', function() {
+    document.getElementById('menu').classList.toggle('show');
+});
+    </script>
+</body>
+</html>
