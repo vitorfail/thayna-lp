@@ -46,6 +46,149 @@
             --borda: 1px solid #e0e9ee;
             --radius: 16px;
         }
+        .prova-social {
+            background: whitesmoke;
+            height: 390px;
+            padding: 20px 0px;
+            display: flex;
+            margin-top: -20px;
+            z-index: 1;
+            align-items: flex-end;
+            justify-content: center;
+        }
+        .center {
+            height: auto;
+            width: 100%;
+            position: relative;
+            display: flex;
+            height: auto;
+            justify-content: center;
+            background: white;
+        }
+        .prova-social .content {
+            border-radius: 10px;
+            width: 60%;
+            height: 410px;
+            margin-bottom: -280px;
+            padding: 20px 0px;
+            background: whitesmoke;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.219);
+            justify-content: center;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+        .prova-social .content .rating {
+            width: 12%;
+            height: auto;
+            opacity: 1;
+            transform: translateY(0px);
+            transition: 0.6s;
+
+        }
+        .prova-social .content h2 strong {
+            color: var(--gold-tertiary);
+            font-weight: bold;
+        }
+        #titulos {
+            padding: 20px 0px;
+            font-size: 2.3rem;
+            font-weight: 100;
+            font-size: 2rem;
+            text-align: center;
+            padding: 30px 0px;
+            color: rgb(39, 39, 39);
+        }
+        .container-carrosel {
+            height: auto;
+            width: 100%;
+            position: relative;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+            opacity: 1;
+            transform: translateY(0px);
+            transition: 0.6s;
+        }
+        .carrosel h4{
+            color: #000000;
+        }
+        .carrosel {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            animation: scroll 30s linear infinite;
+            width: auto;
+            height: 100%;
+        }
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-250px * 5));
+            }
+        }
+        .carrosel .carro {
+            margin: 0px 10px;
+            padding: 20px 20px;
+            border-radius: 15px;
+            color: white;
+            background: white;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-direction: column;
+            height: 100%;
+            width: 350px;
+            box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.103);
+        }
+        .carrosel .carro .titulo {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .carrosel .carro .titulo .info {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .carrosel .carro .titulo .info .perfil {
+            width: 40px;
+            height: auto;
+        }
+        .carrosel .carro .google {
+            position: relative;
+        }
+        .carrosel .carro .google a {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            position: absolute;
+        }
+        .ti-stars {
+            padding-top: 7px;
+            height: auto;
+        }
+        .comments-area a, .page-content a {
+            text-decoration: underline;
+        }
+        .ti-stars .ti-star {
+            width: 9px;
+            aspect-ratio: 1 / 1;
+        }
+        .ti-verified-tooltip {
+            font-size: 9px;
+        }
+        .carrosel .carro p {
+            font-size: 0.7em;
+            color: black;
+        }
         ul{
             height: 40px;
             width: 40px;
@@ -110,13 +253,14 @@
         .items-header .cont span{
             font-size: 0.9rem;
             font-weight: 400;
+            padding: 0px 10px;
         }
         .logo-mobile{
             display: none;
         }
         .items-header .cont {
             border-bottom: 1px solid var(--bg-secondary);
-            flex-direction: column;
+            flex-direction: row;
             font-weight: 700;
             display: flex;
             gap: 20px;
@@ -208,7 +352,7 @@
             color: white;
             font-weight: 600;
             padding: 16px 32px;
-            border-radius: 50px;
+            border-radius: 10px;
             text-decoration: none;
             font-size: 1.5rem;
             transition: all 0.25s;
@@ -248,8 +392,7 @@
         }
         #btn{
             transition: all 0.3s ease;
-            background: linear-gradient(56deg, #25D366, #25D366, #afffe4, #25D366, #25D366);
-            /* background: linear-gradient(56deg, var(--secondary)); */
+            background:linear-gradient(56deg, #0da712, #0da712, #16f52c, #0da712, #0da712);
             background-size: 400%;
             animation: changeGradientAnimation 12s ease-in-out infinite;
             box-shadow:  inset 0px 0px 60px rgba(0, 0, 0, 0.301);
@@ -296,7 +439,7 @@
         }
 
         .hero h1 strong {
-            color: var(--gold-secondary);
+            color: #00ff00;
         }
 
         .hero-text {
@@ -307,7 +450,8 @@
 
         /* ===== SEÇÃO DE PROBLEMAS/LISTA ===== */
         .problemas {
-            padding: 70px 0;
+            padding-bottom: 70px;
+            padding-top: 350px;
             background: var(--branco);
             width: 100%;
         }
@@ -634,6 +778,23 @@
         }
 
         @media (max-width: 768px) {
+            .prova-social {
+                margin-top: 0px;
+            }
+            .prova-social .content {
+                width: 90%;
+                height: 450px;
+                margin-bottom: -410px;
+            }
+            .problemas{
+                padding-top: 480px;
+            }
+            .prova-social .content .rating {
+                width: 25%;
+            }
+            #titulos {
+                font-size: 1.7rem;
+            }
             .menu-icon{
                 display: flex;
                 padding: 5px 0px;
@@ -675,10 +836,10 @@
                 text-align: center;
             }
             .hero .container{
-                height: 60vh;
                 z-index: 1;
             }
             .hero::before{
+                bottom: 0;
                 background: linear-gradient(to top, var(--bg-primary), var(--bg-tertiary), transparent);
             }
             .sobre p, .sobre-adv{
@@ -699,7 +860,7 @@
                 position: relative;
             }
             .hero{
-                padding: 0;
+                padding-bottom: 40px;
                 min-height: 80vh;
                 z-index: 1;
                 position: relative;
@@ -733,6 +894,7 @@
             }
             
             .items-header .cont {
+                flex-direction: row;
                 justify-content: center;
             }
             
@@ -747,6 +909,9 @@
             
             .items-header .linha {
                 display: none;
+            }
+            .carrosel .carro{
+                width: 300px;
             }
         }
 
@@ -780,6 +945,7 @@
         <div class="items-header">
             <div class="cont">
                 <span><i class="fa-solid fa-phone"></i> 51 98200-1504</span>
+                <span><i class="fa-brands fa-whatsapp"></i> 51 98445-1310</span>
             </div>
         </div>
         <div class="menu-icon">
@@ -849,7 +1015,171 @@
             </div>
         </div>
     </section>
-
+    <section class="prova-social center">
+            <div style="overflow-y: hidden;" class="content">
+                <img decoding="async" class="rating show" alt="Avaliação" src="https://amaralsampaioadv.netlify.app/usuarios.png" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                <h2 class="show" id="titulos" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">Mais de <strong>+700</strong> Clientes satisfeitos</h2>
+                <div class="container-carrosel show" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <div class="carrosel" id="carrosel" style="scroll-behavior: smooth; cursor: grab;">
+                        <div class="carro">
+                            <div class="titulo">
+                                <div class="info">
+                                    <span>
+                                        <img decoding="async" class="perfil" alt="Perfil" src="https://lh3.googleusercontent.com/geougc-cs/ABOP9psZmMatAla3dpfRIPAGAuDR_ijBZxhp3V4aJFZ72bQs5Qql0TTtDA80xkB3okwaPmhW_LJTO4mTUzWejX6N3eEFngh5rxc02_Ybk0x2_yz1PzkC6y_cYoMZPU6iVx6hF_DPQhu5GNSoWzBb=s125-p-k-rw">
+                                    </span>
+                                    <span style="margin-left: 15px;">
+                                        <h4>Alexandre Boeira</h4> 
+                                        <p>22/06/2025</p>       
+                                    </span>
+                                </div>
+                                <span class="google">
+                                    <a href="https://share.google/2W6tlIVSrVzVZbp9g"></a>
+                                    <img loading="lazy" decoding="async" class="ti-platform-icon" src="https://cdn.trustindex.io/assets/platform/Google/icon.svg" alt="Google" width="30" height="30">
+                                </span>
+                            </div>
+                            <span class="ti-stars"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><span class="ti-verified-review ti-verified-platform"><span class="ti-verified-tooltip" style="width: 121px;">Trustindex verifica se a fonte original da avaliação é Google.</span></span></span>
+                            <p>Dra Thaina , super competente, tratamento humanizado com comprometimento em resolver de maneira objetiva seu caso.
+                                Merece todos os elogios possíveis
+                                Obrigado pela paciência e e fazer valer sua experiência. Objetivo alcançado</p>
+                        </div>
+                        <div class="carro">
+                            <div class="titulo">
+                                <div class="info">
+                                    <span>
+                                        <img decoding="async" class="perfil" alt="Perfil" src="https://lh3.googleusercontent.com/a-/ALV-UjUwvL69lbZ2e6plVWLSenExvcMzBsl1-ky0ICd_sYqypEwH4uhD=w72-h72-p-rp-mo-br100">
+                                    </span>
+                                    <span style="margin-left: 15px;">
+                                        <h4>Jarbas Trindade Trindade</h4>
+                                        <p>22/06/2025</p>
+                                    </span>
+                                </div>
+                                <span class="google">
+                                    <a href="https://share.google/FSptByTcFPVTMR1RD"></a>
+                                    <img loading="lazy" decoding="async" class="ti-platform-icon" src="https://cdn.trustindex.io/assets/platform/Google/icon.svg" alt="Google" width="30" height="30">
+                                </span>
+                            </div>
+                            <span class="ti-stars"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><span class="ti-verified-review ti-verified-platform"><span class="ti-verified-tooltip" style="width: 121px;">Trustindex verifica se a fonte original da avaliação é Google.</span></span></span>
+                            <p>Desde a recepção no escritório o atendimento já é perfeito fui muito bem atendido thayna uma Profissional maravilhosa atendiosa e comprometida recomendo 100%</p>
+                        </div>
+                        <div class="carro">
+                            <div class="titulo">
+                                <div class="info">
+                                    <span>
+                                        <img decoding="async" class="perfil" alt="Perfil" src="https://lh3.googleusercontent.com/a/ACg8ocIuVCw54boZMQ1LbOWgaCM0YflGApXAu_ck-zE54_ub7bCV1w=w72-h72-p-rp-mo-br100">
+                                    </span>
+                                    <span style="margin-left: 15px;">
+                                        <h4>Jandir Simboloo</h4> 
+                                        <p>22/06/2025</p>       
+                                    </span>
+                                </div>
+                                <span class="google">
+                                    <a href="https://share.google/Q8aUPAYvy4Z3wvZtT"></a>
+                                    <img loading="lazy" decoding="async" class="ti-platform-icon" src="https://cdn.trustindex.io/assets/platform/Google/icon.svg" alt="Google" width="30" height="30">
+                                </span>
+                            </div>
+                            <span class="ti-stars"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><span class="ti-verified-review ti-verified-platform"><span class="ti-verified-tooltip" style="width: 121px;">Trustindex verifica se a fonte original da avaliação é Google.</span></span></span>
+                            <p>Me manifesto positivamente e indico o trabalho profissional do Escritório Thayná Braga Advogada onde fui maravilhosamente atendido em minhas demandas. Seriedade e profissionalismo.</p>
+                        </div>
+                        <div class="carro">
+                            <div class="titulo">
+                                <div class="info">
+                                    <span>
+                                        <img decoding="async" class="perfil" alt="Perfil" src="https://lh3.googleusercontent.com/a/ACg8ocIskV9FlE0s8Af8yDYjvIRwpmOdkEuUix92Lydtwd9JwwnWHw=w72-h72-p-rp-mo-br100">
+                                    </span>
+                                    <span style="margin-left: 15px;">
+                                        <h4>Carina Porto</h4> 
+                                        <p>22/06/2025</p>       
+                                    </span>
+                                </div>
+                                <span class="google">
+                                    <a href="https://share.google/cEjNQXjch9CKC53N4"></a>
+                                    <img loading="lazy" decoding="async" class="ti-platform-icon" src="https://cdn.trustindex.io/assets/platform/Google/icon.svg" alt="Google" width="30" height="30">
+                                </span>
+                            </div>
+                            <span class="ti-stars"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><span class="ti-verified-review ti-verified-platform"><span class="ti-verified-tooltip" style="width: 121px;">Trustindex verifica se a fonte original da avaliação é Google.</span></span></span>
+                            <p>Ótimo atendimento,muito atenciosa, esclareceu todas minhas dúvidas,super indico👍🏽</p>
+                        </div>
+                        <div class="carro">
+                            <div class="titulo">
+                                <div class="info">
+                                    <span>
+                                        <img decoding="async" class="perfil" alt="Perfil" src="https://lh3.googleusercontent.com/a/ACg8ocIeeEOgnDNuH8hAWiT8bjchU6730VeBuoZ5fEwGDd6Uxz3Lzw=w72-h72-p-rp-mo-br100">
+                                    </span>
+                                    <span style="margin-left: 15px;">
+                                        <h4>Gesiane Will</h4> 
+                                        <p>22/06/2025</p>       
+                                    </span>
+                                </div>
+                                <span class="google">
+                                    <a href="https://share.google/s6XiFZBqORpnZvrNQ"></a>
+                                    <img loading="lazy" decoding="async" class="ti-platform-icon" src="https://cdn.trustindex.io/assets/platform/Google/icon.svg" alt="Google" width="30" height="30">
+                                </span>
+                            </div>
+                            <span class="ti-stars"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><span class="ti-verified-review ti-verified-platform"><span class="ti-verified-tooltip" style="width: 121px;">Trustindex verifica se a fonte original da avaliação é Google.</span></span></span>
+                            <p>Boa tarde, minha experiência foi muito boa, advogada excelente, fui muito bem atendida.</p>
+                        </div>
+                        <div class="carro">
+                            <div class="titulo">
+                                <div class="info">
+                                    <span>
+                                        <img decoding="async" class="perfil" alt="Perfil" src="https://lh3.googleusercontent.com/a-/ALV-UjXmplUENj_c9XNkdtuB6ES8sQcEUaECfU_OoxdMFvxh2iO0-6SXHg=w72-h72-p-rp-mo-br100">
+                                    </span>
+                                    <span style="margin-left: 15px;">
+                                        <h4>Taina Santos</h4> 
+                                        <p>22/06/2025</p>       
+                                    </span>
+                                </div>
+                                <span class="google">
+                                    <a href="https://share.google/C1sBXkvswiy7UA8Hk"></a>
+                                    <img loading="lazy" decoding="async" class="ti-platform-icon" src="https://cdn.trustindex.io/assets/platform/Google/icon.svg" alt="Google" width="30" height="30">
+                                </span>
+                            </div>
+                            <span class="ti-stars"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><span class="ti-verified-review ti-verified-platform"><span class="ti-verified-tooltip" style="width: 121px;">Trustindex verifica se a fonte original da avaliação é Google.</span></span></span>
+                            <p>Boa tarde !minha experiência com relação a equipe Tainá Braga.sempre ótimo atendimento trabalho sério com comprometimento .super indico 👋🏽👋🏽👋🏽👋🏽 sempre top</p>
+                        </div>
+                        <div class="carro">
+                            <div class="titulo">
+                                <div class="info">
+                                    <span>
+                                        <img decoding="async" class="perfil" alt="Perfil" src="https://lh3.googleusercontent.com/a/ACg8ocK-Rpd9ljXIfOl7LejJf2saUlazKSeBQeNK3IGEcAix1F98Tw=w72-h72-p-rp-mo-br100">
+                                    </span>
+                                    <span style="margin-left: 15px;">
+                                        <h4>Cleo Lopes</h4> 
+                                        <p>17/05/2024</p>       
+                                    </span>
+                                </div>
+                                <span class="google">
+                                    <a href="https://share.google/n7D2yQDRuiDV50OZf"></a>
+                                    <img loading="lazy" decoding="async" class="ti-platform-icon" src="https://cdn.trustindex.io/assets/platform/Google/icon.svg" alt="Google" width="30" height="30">
+                                </span>
+                            </div>
+                            <span class="ti-stars"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><span class="ti-verified-review ti-verified-platform"><span class="ti-verified-tooltip" style="width: 121px;">Trustindex verifica se a fonte original da avaliação é Google.</span></span></span>
+                            <p>Simplesmente o melhor atendimento ! Dra Thainá muito dedicada, humana, competente! Gratidão por sempre me auxiliar tão bem ! Recomendo sempre! Excelente profissional!</p>
+                        </div>
+                        <div class="carro">
+                            <div class="titulo">
+                                <div class="info">
+                                    <span>
+                                        <img decoding="async" class="perfil" alt="Perfil" src="https://lh3.googleusercontent.com/a-/ALV-UjU9pCaKHRp_KPP25v9xh5Q15DM6GqjecYqNyShEjL4O1p3g_5ys=w72-h72-p-rp-mo-ba3-br100">
+                                    </span>
+                                    <span style="margin-left: 15px;">
+                                        <h4>Fredy Trommer</h4> 
+                                        <p>17/05/2024</p>       
+                                    </span>
+                                </div>
+                                <span class="google">
+                                    <a href="https://share.google/0AhXGzM1Bbm0IlpZ6"></a>
+                                    <img loading="lazy" decoding="async" class="ti-platform-icon" src="https://cdn.trustindex.io/assets/platform/Google/icon.svg" alt="Google" width="30" height="30">
+                                </span>
+                            </div>
+                            <span class="ti-stars"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><img decoding="async" class="ti-star" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" loading="lazy"><span class="ti-verified-review ti-verified-platform"><span class="ti-verified-tooltip" style="width: 121px;">Trustindex verifica se a fonte original da avaliação é Google.</span></span></span>
+                            <p>Uma profissional super competente, cumpre o que se dispõe a fazer, sem enrolação, sem letras miúdas em contrato ,que você só percebe no final do processo. Tem uma equipe pronta pra te ajudar a tirar tuas dúvidas quando aparecem. Estou muito feliz com o resultado junto ao INSS que ela obteve ao meu favor.
+Obrigado Dra Thayna Braga!!!!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
     <!-- ===== LISTA DE SITUAÇÕES ===== -->
     <section class="problemas">
         <div class="container">
@@ -1033,11 +1363,11 @@ Sua atuação é pautada por estratégia processual, análise técnica aprofunda
                 </div>
                 <div class="contato-item">
                     <span style="font-size: 2rem;">📧</span>
-                    <span style="font-size: 1.2rem;">contato@dominio.com.br</span>
+                    <span style="font-size: 1.2rem;">contato@thaynabraga.com.br</span>
                 </div>
                 <div class="contato-item">
                     <span style="font-size: 2rem;">📍</span>
-                    <span style="font-size: 1.2rem;">Matriz: Av. Inconfidência, 650 - sala 714 - Edifício La Torre (em frente ao INSS) - Mal. Rondon - Canoas - RS
+                    <span style="font-size: 1.2rem;">Matriz: Av. Inconfidência, 650 - Sala 503 - Edifício La Torre (em frente ao INSS) - Mal. Rondon - Canoas - RS
 Filial: Rua Nelson Paim Terra, 1327 - Rio Branco - Canoas - RS</span>
                 </div>
             </div>
@@ -1051,8 +1381,8 @@ Filial: Rua Nelson Paim Terra, 1327 - Rio Branco - Canoas - RS</span>
     </a>
     <script>
         document.getElementById('menu-btn').addEventListener('click', function() {
-    document.getElementById('menu').classList.toggle('show');
-});
+            document.getElementById('menu').classList.toggle('show');
+        });
     </script>
 </body>
 </html>
