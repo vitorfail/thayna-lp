@@ -19,24 +19,24 @@
         }
 
         :root {
-            /* Cores de fundo - Tons de azul escuro */
-            --bg-primary: #0a1428;      /* Azul marinho escuro */
-            --bg-secondary: #1a2942;    /* Azul escuro médio */
-            --bg-tertiary: #2a3b5a;     /* Azul escuro claro */
-            --bg-card: #1e3150;         /* Azul para cards */
+           --bg-primary: #0a0c0f;
+            --bg-secondary: #14181c;
+            --bg-tertiary: #1e2429;
+            --bg-card: #1a1f24;
             
             /* Cores de texto */
-            --text-primary: #ffffff;     /* Branco puro */
-            --text-secondary: #b8c7e7;   /* Azul muito claro acinzentado */
-            --text-tertiary: #8a9fc7;    /* Azul médio acinzentado */
-            --text-inverse: #0a1428;     /* Azul escuro principal */
+            --text-primary: #ffffff;
+            --text-secondary: #b3b9c4;
+            --text-tertiary: #8a919e;
+            --text-inverse: #0a0c0f;
             
-            /* Cores azuis (mantendo os nomes gold) */
-            --gold-primary: #3b82f6;     /* Azul vibrante */
-            --gold-secondary: #2563eb;   /* Azul médio */
-            --gold-tertiary: #1d4ed8;    /* Azul escuro */
-            --gold-light: #93c5fd;       /* Azul claro */
-            --gold-dark: #1e3a8a;        /* Azul profundo */            
+            /* Cores douradas */
+            --gold-primary: #ffd700;
+            --gold-secondary: #daa520;
+            --gold-tertiary: #b8860b;
+            --gold-light: #fff1b8;
+            --gold-dark: #9b7e1e;
+            
             /* Cores de borda e linha */
             --border-light: rgba(255, 215, 0, 0.15);
             --border-medium: rgba(255, 215, 0, 0.3);
@@ -189,7 +189,7 @@
             font-size: 0.7em;
             color: black;
         }
-        ul{
+        .items-header .icons a{
             height: 40px;
             width: 40px;
             display: flex;
@@ -468,7 +468,7 @@
             font-size: 0.9rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: white;
+            color: var(--bg-primary);
             background: var(--gold-primary);
             padding: 6px 14px;
             border-radius: 50px;
@@ -859,6 +859,9 @@
                 margin-bottom: 20px;
                 position: relative;
             }
+            .items-header a{
+                padding: 0px;
+            }
             .hero{
                 padding-bottom: 40px;
                 min-height: 80vh;
@@ -944,8 +947,8 @@
     <header>
         <div class="items-header">
             <div class="cont">
-                <span><i class="fa-solid fa-phone"></i> 51 98200-1504</span>
-                <span><i class="fa-brands fa-whatsapp"></i> 51 98445-1310</span>
+                <a href="tel:+5551982001504"><i class="fa-solid fa-phone"></i> 51 98200-1504</a>
+                <a href="https://wa.me/5551982001504?text=Vim%20pelo%20site%20e%20gostaria%20de%20dar%20entrada%20nos%20meus%20direitos%20trabalhistas"><i class="fa-brands fa-whatsapp"></i> 51 98445-1310</a>
             </div>
         </div>
         <div class="menu-icon">
@@ -981,16 +984,16 @@
                 <span class="linha"></span>
                 <a href="#">Contato</a>
             </div>
-                        <div class="icons">
-                <ul>
+            <div class="icons">
+                <a href="https://www.facebook.com/thaynabragaadvogada">
                     <i class="fa-brands fa-facebook-f"></i>
-                </ul>
-                <ul>
+                </a>
+                <a href="https://www.instagram.com/thaynabragaadvogada/">
                     <i class="fa-brands fa-instagram"></i>
-                </ul>
-                <ul>
+                </a>
+                <a href="https://www.youtube.com/channel/UC5q9U2dZ_bILrsn6zbrIBqQ">
                     <i class="fa-brands fa-youtube"></i>
-                </ul>
+                </a>
             </div>
         </div>    
     </header>
